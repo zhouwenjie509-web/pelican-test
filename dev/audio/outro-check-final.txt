@@ -1,0 +1,19 @@
+Wrote out/audio/s21.wav: film 124.00-137.00 s (13.000 s), outro, 334 events, peak -6.1 dBFS; prepared in 1.9 s, rendered in 2.8 s
+
+== out/audio/s21.wav · outro ==
+Level     -19.3 LUFS over film 125.00-137.00 s  OK (target -18 LUFS)
+          peak -6.1 dBFS at film 127.016 s, true peak -6.1 dBTP, loudness range 20.0 LU
+Balance   centroid 621 Hz, 7.5 % of the energy below 120 Hz, 0.1 % above 8 kHz, DC -6.9e-12
+Clicks    largest sample-to-sample step 0.118 at film 127.010 s
+Cues      film s      u    lag     rise   what
+          125.000   0.00 +4.0 ms  121 dB  the pelican goes through the last frame: tutti: ok
+          129.000   4.00 +1.0 ms   15 dB  camera flash 1: ok
+          130.000   5.00 +1.0 ms   17 dB  camera flash 2: ok
+          131.000   6.00 +1.0 ms   18 dB  camera flash 3: ok
+          132.000   7.00 +1.0 ms   20 dB  camera flash 4: ok
+          132.500   7.50 +1.0 ms   40 dB  camera flash 5: ok
+Lead      26 notes: median 0.2 cents, worst +4.2 cents (F#4 at film 131.75 s)
+Picture   out/audio/s21.png: 60 px per second from film 124.00 s. Bright vertical lines are bar lines (labelled in film seconds), faint ones beats. 30 Hz at the bottom to 16 kHz at the top (logarithmic), guides at 100 Hz, 1 kHz, 10 kHz. Brightness is level, -96 dB (black) to -12 dB. Turquoise: a wedge at the top for each declared cue, and a dotted line where each lead note's fundamental should be. Below: the waveform, and the level in dB (yellow, 0 at the top to -60).
+
+Nothing out of tolerance.
+Cost: 334 events, 415 source nodes started, at most 172 alive at once (sounding or scheduled within two seconds; keep it under about 250), its own prepare() took 0.00 s.

@@ -1,0 +1,10 @@
+node_modules/
+out/
+frames/
+.DS_Store
+*.log
+.work/
+
+# scratch renders belong under out/audio/ (dev/audio holds scripts and notes only)
+dev/audio/*.wav
+dev/audio/*.png

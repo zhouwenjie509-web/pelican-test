@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Pelican Test</title>
+<link rel="stylesheet" href="src/main/player.css">
+<!-- Libraries are served unmodified from node_modules (see tools/lib/server.mjs). -->
+<script src="vendor/p5.min.js"></script>
+<!-- p5.brush composites its strokes in a p5 "postdraw" hook; remember where that hook will be registered. -->
+<script>window.__p5HooksBeforeBrush = p5.lifecycleHooks.postdraw.length;</script>
+<script src="vendor/p5.brush.js"></script>
+</head>
+<body>
+<main id="app">
+  <div id="viewport">
+    <div id="canvas-holder"></div>
+    <div id="loading">Preparing…</div>
+    <div id="hint" hidden>▶ Click or press Space to play</div>
+  </div>
+  <div id="controls" hidden>
+    <div id="scrub">
+      <div id="segments"></div>
+      <div id="playhead"></div>
+      <input id="seek" type="range" min="0" max="137" step="0.01" value="0" aria-label="Timeline">
+    </div>
+    <div id="row">
+      <button id="play" type="button" aria-label="Play or pause" title="Play / pause (Space)">▶</button>
+      <button id="sound" type="button" aria-label="Sound on or off" title="Sound is on (M)" hidden>♪</button>
+      <div id="clock"><span id="time">0:00.00</span><span class="dim"> / <span id="total">2:17.00</span></span></div>
+      <div id="section"><span id="section-no"></span><span id="section-zh"></span><span id="section-en" class="dim"></span></div>
+      <div id="beat" class="dim" title="Bar and beat within the section"></div>
+      <div id="fps" class="dim" title="Frames per second. If sound and picture are apart on your loudspeakers or display, [ and ] move the picture by 10 ms."></div>
+    </div>
+  </div>
+</main>
+<script type="module" src="src/main/app.js"></script>
+</body>
+</html>

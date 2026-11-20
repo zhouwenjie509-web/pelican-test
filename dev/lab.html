@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>Lab</title>
+<style>html,body{margin:0;background:#161514}canvas{display:block}</style>
+<script src="../vendor/p5.min.js"></script>
+<script>window.__p5HooksBeforeBrush = p5.lifecycleHooks.postdraw.length;</script>
+<script src="../vendor/p5.brush.js"></script>
+</head><body>
+<script type="module">
+// Development lab: runs one experiment module on a real Stage.
+//   dev/lab.html?exp=brushes        loads dev/experiments/brushes.js and calls its draw(stage, params)
+// The experiment may return an object; it is exposed as window.result.
+import { Stage } from "../src/kit/stage.js";
+import { BRUSH_SCALE } from "../src/kit/pen.js";
+const params = new URLSearchParams(location.search);
+const width = Number(params.get("w") || 1920);
+const height = Math.round((width * 9) / 16);
+const mod = await import(`./experiments/${params.get("exp") || "brushes"}.js`);
+let stage = null;
+const sketch = new p5((p) => {
+  brush.instance(p);
+  p.setup = () => {
+    p.createCanvas(width, height, p.WEBGL);
+    p.pixelDensity(1);
+    p.noLoop();
+    stage = new Stage(p, { width, height });
+    brush.scaleBrushes(BRUSH_SCALE);
+    if (mod.setup) mod.setup(stage, params);
+  };
+  let ran = false;
+  p.draw = () => {
+    if (!stage || ran) return;
+    ran = true;
+    // &runs=3 repeats the experiment and reports the last pass (steady-state timings)
+    const runs = Number(params.get("runs") || 1);
+    for (let i = 0; i < runs; i += 1) {
+      stage.beginFrame();
+      const t0 = performance.now();
+      window.result = mod.draw(stage, params) || {};
+      stage.endFrame();
+      p.drawingContext.finish();
+      window.result.ms = +(performance.now() - t0).toFixed(1);
+    }
+    window.ready = true;
+  };
+}, document.body);
+</script></body></html>

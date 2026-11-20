@@ -1,0 +1,17 @@
+Level     -19.1 LUFS over film 17.00-23.00 s
+          peak -5.6 dBFS at film 17.028 s, true peak -5.5 dBTP, loudness range 1.0 LU
+Balance   centroid 390 Hz, 9.1 % of the energy below 120 Hz, 0.0 % above 8 kHz, DC -3.9e-5
+Clicks    largest sample-to-sample step 0.102 at film 17.002 s
+Tail      -62.0 dBFS in the last quarter second of the file
+Cues      film s      u    lag     rise   what
+           17.000   0.00 +1.0 ms  126 dB  the pelican joins the procession: ok
+           17.000  17.00 +1.0 ms  119 dB  crossing 2 [bike]: ok
+           19.000   2.00 +7.0 ms   33 dB  dab 1: 此: great bell D3: ok
+           19.500   2.50 +10.0 ms   12 dB  dab 2: 鹈: great bell B2: ok
+           20.000   3.00 +9.0 ms   12 dB  dab 3: 鹕: great bell A2: ok
+           20.500   3.50 +16.0 ms   13 dB  dab 4: 车, the label is complete: great bell D2: ok
+           23.000  23.00 +1.0 ms   43 dB  crossing 3 [bike]: ok
+Lead      16 notes: median -0.1 cents, worst -3.2 cents (A4 at film 18.75 s)
+
+Nothing out of tolerance.
+Cost: 540 events, 149 source nodes started, at most 54 alive at once (sounding or scheduled within two seconds; keep it under about 250), its own prepare() took 0.11 s.

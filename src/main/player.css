@@ -1,0 +1,59 @@
+:root {
+  --bg: #121110;
+  --panel: #1c1a18;
+  --text: #ece6da;
+  --dim: #9a9186;
+  --accent: #e2bc68;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); overflow: hidden; }
+body { font: 14px/1.3 "Helvetica Neue", "PingFang SC", Arial, sans-serif; }
+#app { display: flex; flex-direction: column; height: 100%; }
+#viewport { position: relative; flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; }
+#canvas-holder { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+#canvas-holder canvas { display: block; width: auto !important; height: auto !important; max-width: 100%; max-height: 100%; aspect-ratio: 16 / 9; }
+#loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--dim); letter-spacing: 0.08em; pointer-events: none; }
+#loading[hidden] { display: none; }
+
+body.export #controls, body.export #loading { display: none !important; }
+body.export #canvas-holder canvas { max-width: none; max-height: none; }
+body.export #viewport { align-items: flex-start; justify-content: flex-start; }
+body.export #canvas-holder { align-items: flex-start; justify-content: flex-start; }
+
+#hint { position: absolute; left: 50%; bottom: 9%; transform: translateX(-50%); padding: 9px 18px; border-radius: 999px; background: rgba(28, 26, 24, 0.82); color: var(--text); letter-spacing: 0.04em; pointer-events: none; white-space: nowrap; }
+#hint[hidden] { display: none; }
+#viewport { cursor: pointer; }
+
+#controls { flex: 0 0 auto; padding: 8px 14px 10px; background: var(--panel); border-top: 1px solid #2a2724; }
+#controls[hidden] { display: none; }
+#row { display: flex; align-items: center; gap: 14px; margin-top: 6px; }
+#play { flex: 0 0 auto; width: 40px; height: 30px; border: 1px solid #3a3632; border-radius: 6px; background: #26231f; color: var(--text); font-size: 14px; cursor: pointer; }
+#play:hover { border-color: var(--accent); }
+#sound { flex: 0 0 auto; width: 34px; height: 30px; border: 1px solid #3a3632; border-radius: 6px; background: #26231f; color: var(--accent); font-size: 15px; cursor: pointer; }
+#sound:hover { border-color: var(--accent); }
+#sound.off { color: var(--dim); text-decoration: line-through; }
+#sound[hidden] { display: none; }
+#clock { flex: 0 0 auto; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dim { color: var(--dim); }
+#scrub { position: relative; height: 26px; }
+#segments { position: absolute; left: 0; right: 0; top: 8px; height: 10px; display: flex; border-radius: 3px; overflow: hidden; }
+#segments > div { height: 100%; border-right: 1px solid rgba(0, 0, 0, 0.55); opacity: 0.9; }
+#segments > div:last-child { border-right: 0; }
+#playhead { position: absolute; top: 2px; width: 2px; height: 22px; margin-left: -1px; background: #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6); pointer-events: none; }
+#seek { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+#section { flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#section-no { display: inline-block; min-width: 26px; color: var(--accent); font-variant-numeric: tabular-nums; }
+#section-zh { margin-right: 8px; }
+#beat { flex: 0 0 auto; font-variant-numeric: tabular-nums; white-space: nowrap; }
+#fps { flex: 0 0 auto; min-width: 48px; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Narrow windows (a side pane, a phone): the section name gets a line of its own, so that it is always shown. */
+@media (max-width: 760px) {
+  #row { flex-wrap: wrap; row-gap: 4px; }
+  #section { order: 9; flex: 1 0 100%; }
+  #beat { margin-left: auto; }
+}
+@media (max-width: 430px) {
+  #beat { display: none; }
+  #fps { margin-left: auto; }
+}

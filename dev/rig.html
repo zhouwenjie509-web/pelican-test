@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Rig sheet</title>
+<style>html,body{margin:0;background:#ece4d2}canvas{display:block}</style></head>
+<body><canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+// Development sheet: the plain skin at eight pedal phases, plus one large view.
+import { solveRig, CRANK_ON_BEAT } from "../src/rig/rig.js";
+import { drawPlain } from "../src/rig/skins/plain.js";
+const q = new URLSearchParams(location.search);
+const ctx = document.getElementById("c").getContext("2d");
+const time = Number(q.get("t") || 0);
+ctx.fillStyle = "#ece4d2"; ctx.fillRect(0, 0, 1920, 1080);
+ctx.font = "20px Menlo, monospace"; ctx.fillStyle = "#555";
+const cols = 4, S = 46;
+for (let i = 0; i < 8; i += 1) {
+  const cx = 250 + (i % cols) * 470, cy = 470 + Math.floor(i / cols) * 520;
+  const crank = CRANK_ON_BEAT + (i / 8) * Math.PI * 2;
+  ctx.strokeStyle = "#b9ad93"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(cx - 220, cy); ctx.lineTo(cx + 220, cy); ctx.stroke();
+  const skel = solveRig({ x: cx, y: cy, scale: S, crank, wheel: crank * 1.25, time: time + i / 8, act: window.act || {} });
+  drawPlain(ctx, skel);
+  ctx.fillStyle = "#555"; ctx.fillText(`phase ${i}/8`, cx - 210, cy + 34);
+}
+window.ready = true;
+</script></body></html>

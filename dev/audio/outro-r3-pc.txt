@@ -1,0 +1,19 @@
+film s   note  skel  window      | LS: strongest (dB)   tune vs next        | DFT: strongest   tune vs next
+125.00  D4    S    125.03-125.18  | yes D   -18.7  +12.1 dB vs A         | yes D    -5.6  +11.4 dB vs A
+125.50  E4         125.53-125.68  | yes E   -26.7  +3.8 dB vs D          | yes E   -13.2  +4.1 dB vs D
+125.75  F#4        125.78-125.88  | yes F#  -19.5  +13.6 dB vs C#        | yes F#   -4.3  +13.0 dB vs C#
+126.00  A4    S    126.03-126.18  | yes A   -19.2  +7.6 dB vs E          | yes A    -5.7  +7.1 dB vs E
+126.50  F#4        126.53-126.68  | yes F#  -18.3  +16.5 dB vs C#        | yes F#   -4.8  +15.9 dB vs C#
+126.75  A4         126.78-126.88  | yes A   -20.2  +10.8 dB vs E         | yes A    -5.0  +10.3 dB vs E
+127.00  B4    S    127.03-127.18  | yes B   -11.7  +15.8 dB vs F#        | yes B     1.8  +15.7 dB vs F#
+127.50  A4         127.53-127.68  | yes A   -20.1  +11.3 dB vs E         | yes A    -6.6  +10.7 dB vs E
+127.75  F#4        127.78-127.88  | yes F#  -17.4  +14.0 dB vs C#        | yes F#   -2.3  +13.6 dB vs C#
+128.00  E4    S    128.03-128.18  | yes E   -16.2  +13.7 dB vs B         | yes E    -3.1  +10.7 dB vs F
+129.00  F#4   S    129.03-129.18  | yes F#  -16.2  +17.4 dB vs C#        | yes F#   -2.7  +16.9 dB vs C#
+129.50  E4         129.53-129.68  | yes E   -24.8  +6.6 dB vs B          | yes E   -11.4  +6.3 dB vs B
+129.75  D4         129.78-129.88  | yes D   -27.8  +1.9 dB vs A          | yes D   -13.0  +1.6 dB vs A
+130.00  B3    S    130.03-130.18  | yes B   -18.6  +10.5 dB vs F#        | yes B    -5.1  +10.3 dB vs F#
+130.50  A3         130.53-130.68  | yes A   -24.1  +6.2 dB vs E          | yes A   -10.9  +5.8 dB vs E
+130.75  B3         130.78-130.88  | yes B   -22.4  +9.2 dB vs A          | yes B    -7.2  +9.2 dB vs F#
+131.00  D4    S    131.03-131.18  | yes D   -27.0  +7.5 dB vs A          | yes D   -13.9  +6.8 dB vs A
+Tune's pitch class strongest, among the 16 notes 125.0-130.75 (131.0 shown apart): LS 16, DFT 16; skeleton (6): LS 6, DFT 6.

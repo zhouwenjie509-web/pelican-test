@@ -1,0 +1,28 @@
+{
+  "name": "pelican-test",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The Pelican Test: a code-animated short film drawn frame by frame with p5.js and p5.brush.",
+  "scripts": {
+    "dev": "node tools/serve.mjs",
+    "shot": "node tools/shot.mjs",
+    "sheet": "node tools/sheet.mjs",
+    "render": "node tools/render.mjs",
+    "encode": "node tools/encode.mjs",
+    "check": "node tools/check.mjs",
+    "audio": "node tools/audio.mjs",
+    "export": "node tools/export.mjs",
+    "verify": "node tools/verify.mjs"
+  },
+  "dependencies": {
+    "p5": "2.4.0",
+    "p5.brush": "3.0.0"
+  },
+  "devDependencies": {
+    "puppeteer-core": "25.17.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
